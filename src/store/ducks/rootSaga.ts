@@ -1,11 +1,15 @@
 import * as Eff from 'redux-saga/effects'; // <-- new
-import { login } from './login/sagas';
+import { ForkEffect } from 'redux-saga/effects';
+import { loginRootSaga } from './login/sagas';
 
-import { ELoginTypes } from './login/types';
-
-const takeLatest: any = Eff.takeLatest; // <-- new
 const all = Eff.all; // <-- new
 
+export function* combineRootSagas(): Generator<ForkEffect<never>[]> {
+  const sagas = [...loginRootSaga()];
+  return sagas;
+}
+
 export default function* rootSaga(): any {
-  return yield all([takeLatest(ELoginTypes.HANDLE_LOGIN, login)]);
+  const sagas = combineRootSagas();
+  return yield all(yield sagas);
 }

@@ -1,8 +1,8 @@
 // Action types
-export enum ELoginTypes {
-  SET_LOADING = '@login/SET_LOADING',
-  HANDLE_LOGIN = '@login/HANDLE_LOGIN',
-}
+export const ELoginTypes = {
+  SET_LOADING: '@login/SET_LOADING',
+  HANDLE_LOGIN: '@login/HANDLE_LOGIN',
+};
 
 // Data types
 export interface ILogin {

@@ -1,7 +1,7 @@
-import { call, put } from 'redux-saga/effects';
+import { ForkEffect, put, takeEvery } from 'redux-saga/effects';
 import { ISagaParam } from '../sagaTypes';
 import { setLoading } from './actions';
-import { ILogin } from './types';
+import { ELoginTypes, ILogin } from './types';
 
 export function* login(param: ISagaParam<ILogin>) {
   try {
@@ -13,4 +13,8 @@ export function* login(param: ISagaParam<ILogin>) {
   } catch (error) {
     put(setLoading(false));
   }
+}
+
+export function loginRootSaga(): ForkEffect<never>[] {
+  return [takeEvery(ELoginTypes.HANDLE_LOGIN, login)];
 }
