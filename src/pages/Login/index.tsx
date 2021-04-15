@@ -1,26 +1,26 @@
 import { bindActionCreators, Dispatch } from 'redux';
 import { connect } from 'react-redux';
 
-import { ApplicationState } from '../../store';
+import { IApplicationState } from '../../store';
 import { LoginView } from './login';
 
 import * as LoginActions from '../../store/ducks/login/actions';
-import { Login, LoginState } from '../../store/ducks/login/types';
+import { ILogin, ILoginState } from '../../store/ducks/login/types';
 
-interface StateProps {
-  login: LoginState;
+interface IStateProps {
+  login: ILoginState;
 }
 
-interface DispatchProps {
+interface IDispatchProps {
   setLoading(value: boolean): void;
-  handleLogin(loginData: Login): void;
+  handleLogin(loginData: ILogin): void;
 }
 
-interface OwnProps {}
+interface IOwnProps {}
 
-export type LoginViewProps = StateProps & DispatchProps & OwnProps;
+export type LoginViewProps = IStateProps & IDispatchProps & IOwnProps;
 
-const mapStateToProps = ({ login }: ApplicationState) => ({
+const mapStateToProps = ({ login }: IApplicationState) => ({
   login,
 });
 

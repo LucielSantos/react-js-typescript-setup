@@ -1,9 +1,9 @@
 import { call, put } from 'redux-saga/effects';
 import { ISagaParam } from '../sagaTypes';
 import { setLoading } from './actions';
-import { Login } from './types';
+import { ILogin } from './types';
 
-export function* login(param: ISagaParam<Login>) {
+export function* login(param: ISagaParam<ILogin>) {
   try {
     put(setLoading(true));
 
