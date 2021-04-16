@@ -1,6 +1,10 @@
 import { createGlobalStyle } from 'styled-components';
 
 export const globalStye = createGlobalStyle`
+  html {
+    font-size: 10px;
+  }
+
   * {
     margin: 0;
     padding: 0;
@@ -9,6 +13,7 @@ export const globalStye = createGlobalStyle`
 
   body {
     background-color: ${props => props.theme.colors.background};
-    font-family: sans-serif;
+    font-family: ${({ theme }) => theme.typography.family};
+    font-size: ${({ theme }) => theme.typography.sizes.md};
   }
 `;
