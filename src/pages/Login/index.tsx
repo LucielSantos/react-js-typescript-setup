@@ -6,6 +6,7 @@ import { LoginView } from './login';
 
 import * as LoginActions from '../../store/ducks/login/actions';
 import { ILogin, ILoginState } from '../../store/ducks/login/types';
+import { RouteComponentProps } from 'react-router';
 
 interface IStateProps {
   login: ILoginState;
@@ -16,7 +17,7 @@ interface IDispatchProps {
   handleLogin(loginData: ILogin): void;
 }
 
-interface IOwnProps {}
+interface IOwnProps extends RouteComponentProps {}
 
 export type LoginViewProps = IStateProps & IDispatchProps & IOwnProps;
 

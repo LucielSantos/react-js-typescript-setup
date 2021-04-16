@@ -1,5 +1,5 @@
 // Action types
-export const ELoginTypes = {
+export const LoginActionTypes = {
   SET_LOADING: '@login/SET_LOADING',
   HANDLE_LOGIN: '@login/HANDLE_LOGIN',
 };
