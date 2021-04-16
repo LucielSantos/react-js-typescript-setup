@@ -1,20 +1,28 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import store from './store';
+import { ThemeProvider } from 'styled-components';
 
-import Main from './pages/Main';
+import store from './store';
 import { routePaths } from './routes';
+import theme from './styles/theme';
+
+import { globalStye as GlobalStyle } from './styles/global';
+import Main from './pages/Main';
 
 const App: React.FC = () => {
   return (
-    <Provider store={store}>
-      <Router>
-        <Switch>
-          <Route path={routePaths.MAIN} component={Main} />
-        </Switch>
-      </Router>
-    </Provider>
+    <ThemeProvider theme={theme}>
+      <Provider store={store}>
+        <Router>
+          <Switch>
+            <Route path={routePaths.MAIN} component={Main} />
+          </Switch>
+
+          <GlobalStyle />
+        </Router>
+      </Provider>
+    </ThemeProvider>
   );
 };
 
